@@ -32,7 +32,10 @@ def say_hello(request, fname, lname):
     return HttpResponse("Hello " + fname + " " + lname)
 
 def home(request):
-    return render(request, "challenges/index.html")
+    return render(request, "challenges/index.html", {
+        "message" : "Click to view challenges",
+        "months": list(month_dict.keys())
+    })
 
 def monthly_challenge_with_month_as_digit(request, month):
     if month < 0 or month > 12:
