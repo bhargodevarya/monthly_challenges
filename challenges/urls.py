@@ -10,6 +10,7 @@ urlpatterns = [
     # path("january/", views.january),
     # path("february/", views.february),
     path("<int:month>", views.monthly_challenge_with_month_as_digit),
+    path("add/<str:month>", views.add_challenge),
     path("<str:month>", views.monthly_challenge),
     path("<fname>/<lname>", views.say_hello)
 ]
