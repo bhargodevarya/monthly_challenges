@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 # Create your views here.
 
+from . import models
+
 month_dict = {
     "january":"January challenge",
     "february":"February challenge",
@@ -51,6 +53,14 @@ def monthly_challenge(request, month):
 
 def add_challenge(request:HttpRequest, month):
     print(request.body)
+    # for res in models.Challenge.scan():
+    #     print(res)
+    
+    # for th in models.Thread.scan():
+    #     print(th.forum_name)
+
+    models.make_challenge()
+
     return render(request, "challenges/add_challenge.html", {
         "month": month
     })
