@@ -49,7 +49,8 @@ def monthly_challenge(request, month):
     except:
         return HttpResponseNotFound("Invalid month or no challenge found")
 
-def add_challenge(request, month):
+def add_challenge(request:HttpRequest, month):
+    print(request.body)
     return render(request, "challenges/add_challenge.html", {
         "month": month
     })
