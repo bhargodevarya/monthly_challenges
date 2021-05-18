@@ -9,6 +9,9 @@
     <script src='main.js'></script>
 </head>
 <body>
+
+    {% include "./shared/header.html" %}
+
     {{ message }}
     <ul>
         {% for month_names in months %}

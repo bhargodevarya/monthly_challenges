@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    {% include "./shared/header.html" %}
+
     Here I will add a new challenge for the month of {{ month }}
     <br></br>
 
-    <form method="POST">
+    <form method="POST" action="/challenges/view/{{month}}"> 
         {% csrf_token %}
         <label name="month" value = {{ month }}>Month</label> : {{ month }} <br/>
         <label>Challenge</label> <input type="text" name="challenge"></input><br/>
