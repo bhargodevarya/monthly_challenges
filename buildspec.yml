@@ -1,20 +1,15 @@
 version: 0.2
 
-env:
-  variables:
-    DB_ROOT_PASSWORD: "password"
-    DB_HOST: "localhost"
-    DB_PASSWORD: "password"
-    DB_SOCKET: "/var/run/mysqld/mysqld.sock"
-    KEYID: "5072E1F5"
-
 phases:
+  install:
+    runtime-version:
+      python: 3.9
   pre_build:
     commands:
       - echo "Before running tests"
-      #- sudo ls /root
       - pwd
       - ls
+      - python --version
       - pip install -r requirements.txt
   build:
     commands:
