@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 # Create your views here.
 
-from . import models
+#from . import models
 
 month_dict = {
     "january": "January challenge",
