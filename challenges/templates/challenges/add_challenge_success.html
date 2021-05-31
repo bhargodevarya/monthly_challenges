@@ -11,5 +11,11 @@
 <body>
     {% include "./shared/header.html"%}
     Added successfully
+
+    <ul>
+    {% for challenge in challenges %}
+      <li> {{ challenge.text }} </li>
+     {% endfor %}
+     </ul>
 </body>
 </html>
