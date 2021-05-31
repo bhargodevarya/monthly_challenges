@@ -10,6 +10,14 @@
 </head>
 <body>
     {% include "./shared/header.html" %}
-    Added challenge for {{ month }}
+    <form method="POST">
+        {% csrf_token %}
+        <label> Month: {{ month }} </label>
+        <br>
+        <label>Challenge: </label><input type="text"></input>
+        <button type="submit">Add</button>    
+    </form>
+    <br></br>
+    Current challenges for {{ month }} are:
 </body>
 </html>
