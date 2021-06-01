@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpRequest
 #from . import models
 
 from . import service
+import challenges
 
 month_dict = {
     "january": "January challenge",
@@ -81,14 +82,17 @@ def add_challenge(request: HttpRequest, month):
 
 def add_challenge_success(request, month):
     challenge = None
+    my_challenges = None
     if request.method == 'POST':
         challenge = request.POST['challenge']
         print(f"For the month of {month} added challenge,  {challenge}")
-        challenges = {"text": Challenge_service.save_challenge({challenge})}
+        #challenges = {"text": Challenge_service.save_challenge({challenge})}
+        my_challenges = Challenge_service.save_challenge(challenge, month)
+        print(f'will send {my_challenges}')
     return render(request, "challenges/add_challenge_success.html", {
         "message": "Click to view challenges",
         "months": list(month_dict.keys()),
         "challenge_add_success": True,
         "challenge_add_success_msg": f"Challenge added successfully for {month}",
-        "challenges":  [{"text": challenge}]
+        "challenges":  my_challenges
     })
